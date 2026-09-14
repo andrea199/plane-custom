@@ -1,0 +1,9 @@
+services:
+  api:
+    image: oniro-plane-api:planning-v1
+  worker:
+    image: oniro-plane-api:planning-v1
+  beat-worker:
+    image: oniro-plane-api:planning-v1
+  web:
+    image: oniro-plane-web:planning-v1
