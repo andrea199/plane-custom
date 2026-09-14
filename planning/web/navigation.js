@@ -22,6 +22,6 @@
     link.style.cssText = 'display:flex;align-items:center;min-height:32px;padding:6px 12px;font-size:13px;white-space:nowrap;';
     people.parentNode.insertBefore(link, people.nextSibling);
   }
-  new MutationObserver(() => { if (!scheduled) { scheduled = true; requestAnimationFrame(attach); } }).observe(document.documentElement, {childList:true, subtree:true});
+  new MutationObserver(() => { if (!scheduled) { scheduled = true; requestAnimationFrame(attach); } }).observe(document, {childList:true, subtree:true});
   attach();
 })();

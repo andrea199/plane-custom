@@ -4,6 +4,9 @@ cd /home/plane/staging/oniro-planning-20260914
 docker image inspect plane-api-custom:latest --format '{{.Id}}' | grep -qx 'sha256:39a68c2a0b97f4f7e7c8c12fcd2fcaec463e68110c4462a2a86719f7eb9c27fe'
 docker build -f Dockerfile.api -t oniro-plane-api:planning-v1 .
 docker network inspect oniro-planning-test >/dev/null 2>&1 || docker network create oniro-planning-test
+if ! docker container inspect planning-test-redis >/dev/null 2>&1; then
+  docker run -d --network oniro-planning-test --name planning-test-redis valkey/valkey:7.2.11-alpine
+fi
 if ! docker container inspect planning-test-db >/dev/null 2>&1; then
   docker run -d --network oniro-planning-test --name planning-test-db -e POSTGRES_PASSWORD=isolated-test-only -e POSTGRES_DB=planner postgres:15.7-alpine
 fi
