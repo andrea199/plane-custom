@@ -5,5 +5,7 @@ services:
     image: oniro-plane-api:planning-v1
   beat-worker:
     image: oniro-plane-api:planning-v1
+  migrator:
+    image: oniro-plane-api:planning-v1
   web:
     image: oniro-plane-web:planning-v1
