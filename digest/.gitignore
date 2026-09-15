@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+config.json
+previews/
+*.sqlite3
+*.log

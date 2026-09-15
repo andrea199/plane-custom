@@ -1,5 +1,0 @@
-ARG BASE_IMAGE=plane-api-custom:latest
-FROM ${BASE_IMAGE}
-COPY oniro_planning /code/oniro_planning
-COPY install_api.py /tmp/install_oniro_planning.py
-RUN python /tmp/install_oniro_planning.py && python -m compileall -q /code/oniro_planning
